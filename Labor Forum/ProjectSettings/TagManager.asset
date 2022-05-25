@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - GroundCheck
+  - Coins
+  - Life
+  - Enemy
   layers:
   - Default
   - TransparentFX

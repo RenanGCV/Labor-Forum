@@ -10,11 +10,13 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpForce;
     public int coins;
+    public int vida = 5;
     public Text pontuacaoTxt;
 
     private Rigidbody2D rb;
     private Animator anim;
     private Transform GroundCheck;
+    public Animator hudAnim;
 
     private bool noChao = false;
     private bool jump = false;
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         MovimentPlayer();
+        Vida();
     }
 
     void Flip()
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isDead)
         {
-            anim.SetTrigger("Dead");
+            anim.SetBool("Death", true);
         }
     }
 
@@ -112,10 +115,46 @@ public class PlayerController : MonoBehaviour
             coins++;
             Destroy(collision.gameObject);
         }
+
+        
+
+        if (collision.gameObject.tag == "Life")
+        {
+            vida++;
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            vida--;
+        }
     }
 
     void AtualizaHud()
     {
         pontuacaoTxt.text = coins.ToString();
+    }
+
+    void Vida()
+    {
+        if (vida > 5)
+        {
+            vida = vida - 1;
+        }
+        if (vida < 0)
+        {
+            vida = vida + 1;
+        }
+        if (vida == 0)
+        {
+            isDead = true;
+            speed = 0;
+            jumpForce = 0;
+        }
+        var vidaValor = vida;
+        hudAnim.SetInteger("Vida", vidaValor);
     }
 }
