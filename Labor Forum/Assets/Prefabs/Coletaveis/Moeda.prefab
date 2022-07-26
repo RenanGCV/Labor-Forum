@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4181429216945452969}
   - component: {fileID: 4181429216945452970}
   - component: {fileID: 4181429216945452971}
-  - component: {fileID: 4181429216945452980}
+  - component: {fileID: 4674035368918415792}
   m_Layer: 6
   m_Name: Moeda
   m_TagString: Coins
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 1, g: 0.8664268, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0aee5189a3bed684f9e3e5dcb4209245, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,22 +97,25 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.056352694, y: -0.31000358}
   serializedVersion: 2
-  m_Radius: 0.50000006
---- !u!111 &4181429216945452980
-Animation:
+  m_Radius: 0.369955
+--- !u!95 &4674035368918415792
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4181429216945452981}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: a24345045a40daf4c88233af1732195f, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: a24345045a40daf4c88233af1732195f, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3996d7f02a4b6f4aa0d63804321193d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

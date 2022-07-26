@@ -26,6 +26,8 @@ public class EnimyController : MonoBehaviour
     public bool modoChase = true;
     [SerializeField]
     private PlayerController player;
+    [SerializeField]
+    private int Life = 3;
 
 
     void Start()
@@ -39,10 +41,12 @@ public class EnimyController : MonoBehaviour
 
         Patrol();
         Chase();
+        BarraDeVida();
 
-       
 
-      
+
+
+
 
     }
 
@@ -140,5 +144,15 @@ public class EnimyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, rangeDetect);
+    }
+
+    void BarraDeVida()
+    {
+        var vida = Life;
+
+        if(vida == 2)
+        {
+            anim.SetInteger("Vida", 2);
+        }
     }
 }
