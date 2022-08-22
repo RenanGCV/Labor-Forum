@@ -14,6 +14,9 @@ public class EnimyController : MonoBehaviour
     private bool isRight = true;
     private Animator anim;
 
+
+    [SerializeField]
+    int currentHealth;
     [SerializeField]
     public bool playerDetected = false;
     [SerializeField]
@@ -27,13 +30,15 @@ public class EnimyController : MonoBehaviour
     [SerializeField]
     private PlayerController player;
     [SerializeField]
-    private int Life = 3;
-
+    int maxHealth = 100;
+    public int coin;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        
     }
 
     void Update()
@@ -41,8 +46,7 @@ public class EnimyController : MonoBehaviour
 
         Patrol();
         Chase();
-        BarraDeVida();
-
+        coin = GetComponent<PlayerController>().coins;
 
 
 
@@ -55,6 +59,29 @@ public class EnimyController : MonoBehaviour
         MovimentEnemy();
         FlipRequirement();
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        anim.SetTrigger("Dano");
+
+        //Animacao de dano
+
+        if (currentHealth <= 0)
+        {
+            ++coin;
+            Die();
+        }
+    }
+
+    void Die()
+    {
+
+        //Animacao de morte
+        anim.SetTrigger("Death");
+        //Desliga o inimigo
+        Destroy(gameObject);
     }
 
 
@@ -144,15 +171,5 @@ public class EnimyController : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(transform.position, rangeDetect);
-    }
-
-    void BarraDeVida()
-    {
-        var vida = Life;
-
-        if(vida == 2)
-        {
-            anim.SetInteger("Vida", 2);
-        }
     }
 }

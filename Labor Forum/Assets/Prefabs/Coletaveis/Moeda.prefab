@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4181429216945452969}
   - component: {fileID: 4181429216945452970}
   - component: {fileID: 4181429216945452971}
-  - component: {fileID: 4674035368918415792}
+  - component: {fileID: 3024011008628743446}
   m_Layer: 6
   m_Name: Moeda
   m_TagString: Coins
@@ -97,10 +97,10 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.056352694, y: -0.31000358}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.369955
---- !u!95 &4674035368918415792
+  m_Radius: 0.50000006
+--- !u!95 &3024011008628743446
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -110,7 +110,7 @@ Animator:
   m_GameObject: {fileID: 4181429216945452981}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c3996d7f02a4b6f4aa0d63804321193d, type: 2}
+  m_Controller: {fileID: 9100000, guid: b6c8154304e92714a898c594c1837091, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
