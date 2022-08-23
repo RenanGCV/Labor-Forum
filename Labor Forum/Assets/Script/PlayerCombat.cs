@@ -27,6 +27,7 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
+                animator.SetTrigger("Attack");
                 Attack();
                 nextAttakTime = Time.time + 1f / attakRate;
             }
@@ -37,7 +38,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         //ANIMAÇÃO DE ATAQUE
-        animator.SetTrigger("Attack");
+        
         //DETECTAR INIMIGOS NO RANGE DE ATAQUE
        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attakPoint.position, attakRange, enemyLayes);
         //DANO DELE

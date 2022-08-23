@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnimyController : MonoBehaviour
 {
@@ -31,13 +32,16 @@ public class EnimyController : MonoBehaviour
     private PlayerController player;
     [SerializeField]
     int maxHealth = 100;
-    public int coin;
+    [SerializeField]
+    int coin;
+    
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
+        coin = GetComponent<PlayerController>().coins;
         
     }
 
@@ -46,7 +50,7 @@ public class EnimyController : MonoBehaviour
 
         Patrol();
         Chase();
-        coin = GetComponent<PlayerController>().coins;
+        
 
 
 
@@ -70,6 +74,7 @@ public class EnimyController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            anim.SetTrigger("Death");
             ++coin;
             Die();
         }
@@ -79,8 +84,14 @@ public class EnimyController : MonoBehaviour
     {
 
         //Animacao de morte
-        anim.SetTrigger("Death");
+
+        Invoke("Destruir", 2f);
         //Desliga o inimigo
+        ;
+    }
+
+    void Destruir()
+    {
         Destroy(gameObject);
     }
 

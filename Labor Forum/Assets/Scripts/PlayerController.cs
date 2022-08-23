@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
         Jump();
         Death();
         AtualizaHud();
-        coins = GetComponent<EnimyController>().coin;
+        
+        
 
     }
 
