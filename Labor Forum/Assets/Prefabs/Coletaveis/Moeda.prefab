@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4181429216945452970}
   - component: {fileID: 4181429216945452971}
   - component: {fileID: 3024011008628743446}
+  - component: {fileID: 1075577481024356919}
   m_Layer: 6
   m_Name: Moeda
   m_TagString: Coins
@@ -119,3 +120,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1075577481024356919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4181429216945452981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c4f0be7f855e1645bdc7eb608fa24e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 1

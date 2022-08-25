@@ -17,10 +17,16 @@ public class Cenas : MonoBehaviour
         
     }
 
-    public void Passar(string cena)
+    public void Passar()
     {
-        SceneManager.LoadScene(cena);
+        SceneManager.LoadScene("Fase 1");
         Time.timeScale = 1;
+    }
+
+    public void MenuPause()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MENU");
     }
 
     public void pause()

@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     public int coins;
     public int vida = 5;
-    public Text pontuacaoTxt;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -37,8 +36,8 @@ public class PlayerController : MonoBehaviour
     {
         NoChao();
         Jump();
-        Death();
-        AtualizaHud();
+        
+        
         
         
 
@@ -57,6 +56,7 @@ public class PlayerController : MonoBehaviour
     {
         MovimentPlayer();
         Vida();
+        Death();
     }
 
     void Flip()
@@ -73,7 +73,15 @@ public class PlayerController : MonoBehaviour
         if (isDead)
         {
             anim.SetBool("Death", true);
+            Invoke("VoltarMenu", 1.666f);
+
         }
+    }
+
+    void VoltarMenu()
+    {
+        SceneManager.LoadScene("MENU");
+        Time.timeScale = 1;
     }
 
     
@@ -109,24 +117,6 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Coins")
-        {
-            coins++;
-            Destroy(collision.gameObject);
-        }
-
-        
-
-        if (collision.gameObject.tag == "Life")
-        {
-            vida++;
-            Destroy(collision.gameObject);
-        }
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -134,12 +124,6 @@ public class PlayerController : MonoBehaviour
             vida--;
         }
     }
-
-    void AtualizaHud()
-    {
-        pontuacaoTxt.text = coins.ToString();
-    }
-
     void Vida()
     {
         if (vida > 5)

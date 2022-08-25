@@ -9,7 +9,8 @@ public class EnimyController : MonoBehaviour
     public float ChaseSpeed;//Velocidade do Inimigo
     public float StoppingDistance;//Distancia para ele parar quando chegar proximo do player
     public float VisionRange;//Campo de visao para entrar em chase
-    
+    public int scoreValue;
+
     private Rigidbody2D rb;
     private int andandoDireita = 1;
     private bool isRight = true;
@@ -32,8 +33,8 @@ public class EnimyController : MonoBehaviour
     private PlayerController player;
     [SerializeField]
     int maxHealth = 100;
-    [SerializeField]
-    int coin;
+    
+    
     
 
     void Start()
@@ -41,7 +42,7 @@ public class EnimyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
-        coin = GetComponent<PlayerController>().coins;
+        
         
     }
 
@@ -50,7 +51,7 @@ public class EnimyController : MonoBehaviour
 
         Patrol();
         Chase();
-        
+        AddCoin();
 
 
 
@@ -74,20 +75,28 @@ public class EnimyController : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            
             anim.SetTrigger("Death");
-            ++coin;
+            
             Die();
         }
     }
 
+    public void AddCoin()
+    {
+        if(currentHealth <= 0)
+        {
+            
+            rb.isKinematic = false;
+        }
+        
+    }
+
     void Die()
     {
-
-        //Animacao de morte
-
-        Invoke("Destruir", 2f);
-        //Desliga o inimigo
-        ;
+        ChaseSpeed = 0f;
+        GameController.instance.AtualizaHud(scoreValue);
+        Invoke("Destruir", 1.5f);
     }
 
     void Destruir()
