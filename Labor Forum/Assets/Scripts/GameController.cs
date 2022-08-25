@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     public int coins;
     public Text pontuacaoTxt;
+    public Text TotemTextHud;
+    public string TextTotem;
 
     void Awake()
     {
@@ -26,6 +28,13 @@ public class GameController : MonoBehaviour
     {
         coins += value;
         pontuacaoTxt.text = coins.ToString();
+        
+    }
+
+    public void AtualizaHud2(string value)
+    {
+        TextTotem = value;
+        TotemTextHud.text = TextTotem.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

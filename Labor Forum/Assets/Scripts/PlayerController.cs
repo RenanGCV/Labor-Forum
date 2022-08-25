@@ -123,6 +123,11 @@ public class PlayerController : MonoBehaviour
         {
             vida--;
         }
+
+        if (collision.gameObject.tag == "Win")
+        {
+            SceneManager.LoadScene("MENU");
+        }
     }
     void Vida()
     {
