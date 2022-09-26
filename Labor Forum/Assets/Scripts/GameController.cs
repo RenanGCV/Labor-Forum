@@ -13,21 +13,39 @@ public class GameController : MonoBehaviour
     public Text TotemTextHud;
     public string TextTotem;
 
+    [SerializeField]
+    int TotalCoins;
+    [SerializeField]
+    
+
     void Awake()
     {
         instance = this;   
-        DontDestroyOnLoad(this.gameObject);
+        
+        TotalCoins = PlayerPrefs.GetInt("coins");
+        Debug.Log(PlayerPrefs.GetInt("coins"));
+        
+    }
+
+    private void Start()
+    {
+        
     }
 
     void Update()
     {
-        
+        pontuacaoTxt.text = TotalCoins.ToString();
+
     }
 
     public void AtualizaHud(int value)
     {
         coins += value;
-        pontuacaoTxt.text = coins.ToString();
+        
+
+        TotalCoins++;
+
+        PlayerPrefs.SetInt("coins", TotalCoins);
         
     }
 
@@ -35,6 +53,17 @@ public class GameController : MonoBehaviour
     {
         TextTotem = value;
         TotemTextHud.text = TextTotem.ToString();
+    }
+
+    public void AtualizaHud3(int value)
+    {
+        TotalCoins -= TotalCoins;
+
+
+        
+
+        PlayerPrefs.SetInt("coins", TotalCoins);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,6 +75,8 @@ public class GameController : MonoBehaviour
         }
 
     }
+     
+    
 
     
 

@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Cenas : MonoBehaviour
 {
+    [SerializeField]
+    private Animator anim;
+    [SerializeField]
+    string cena;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +22,27 @@ public class Cenas : MonoBehaviour
         
     }
 
-    public void Passar()
+    public void Passar2()
     {
-        SceneManager.LoadScene("Fase 1");
+        anim.SetTrigger("FadeOut");
+        Invoke("Passar", 1f);
+    }
+    public void Passar()// Botões menu
+    {
+        SceneManager.LoadScene(cena);
         Time.timeScale = 1;
     }
 
-    public void MenuPause()
+    public void MenuPause2()
     {
+        anim.SetTrigger("FadeOut");
         Time.timeScale = 1;
-        SceneManager.LoadScene("MENU");
+        Invoke("MenuPause", 1f);
+    }
+    public void MenuPause() // Home Pause Menu
+    {
+        
+        SceneManager.LoadScene(cena);
     }
 
     public void pause()
@@ -39,6 +55,11 @@ public class Cenas : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public void Sair1()
+    {
+        anim.SetTrigger("FadeOut");
+        Invoke("Sair", 1f);
+    }
 
     public void Sair()
     {
