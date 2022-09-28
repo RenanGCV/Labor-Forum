@@ -69,7 +69,7 @@ public class EnimyController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        anim.SetTrigger("Dano");
+        Debug.Log("Hit");
 
         //Animacao de dano
 
