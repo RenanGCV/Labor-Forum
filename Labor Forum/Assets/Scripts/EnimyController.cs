@@ -33,9 +33,11 @@ public class EnimyController : MonoBehaviour
     private PlayerController player;
     [SerializeField]
     int maxHealth = 100;
-    
-    
-    
+    [SerializeField]
+    float tempomorte;
+
+
+
 
     void Start()
     {
@@ -96,7 +98,7 @@ public class EnimyController : MonoBehaviour
     {
         ChaseSpeed = 0f;
         GameController.instance.AtualizaHud(scoreValue);
-        Invoke("Destruir", 1.5f);
+        Invoke("Destruir", tempomorte);
     }
 
     void Destruir()
