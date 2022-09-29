@@ -33,16 +33,17 @@ public class Cenas : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void MenuPause2()
+    /*public void MenuPause2()
     {
         anim.SetTrigger("FadeOut");
         Time.timeScale = 1;
         Invoke("MenuPause", 1f);
-    }
+    }*/
     public void MenuPause() // Home Pause Menu
     {
         
         SceneManager.LoadScene(cena);
+        Time.timeScale = 1;
     }
 
     public void pause()

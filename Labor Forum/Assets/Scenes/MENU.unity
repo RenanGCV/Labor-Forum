@@ -919,7 +919,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 345650388}
-  cena: Fase 1
+  cena: Cenario
 --- !u!1 &1072543554
 GameObject:
   m_ObjectHideFlags: 0
