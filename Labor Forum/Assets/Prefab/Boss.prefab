@@ -167,7 +167,7 @@ MonoBehaviour:
   layersPermitidas:
     serializedVersion: 2
     m_Bits: 320
-  raycastOffset: {x: 1.23, y: 0}
+  raycastOffset: {x: 2.89, y: 0}
   rangeDetect: 6.45
   modoChase: 1
   player: {fileID: 0}

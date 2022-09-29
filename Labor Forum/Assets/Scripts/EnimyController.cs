@@ -15,6 +15,7 @@ public class EnimyController : MonoBehaviour
     private int andandoDireita = 1;
     private bool isRight = true;
     private Animator anim;
+    private bool dead = false;
 
 
     [SerializeField]
@@ -53,7 +54,8 @@ public class EnimyController : MonoBehaviour
 
         Patrol();
         Chase();
-        AddCoin();
+        
+        
 
 
 
@@ -79,6 +81,7 @@ public class EnimyController : MonoBehaviour
         {
             
             anim.SetTrigger("Death");
+            dead = true;
             
             Die();
         }
@@ -88,7 +91,7 @@ public class EnimyController : MonoBehaviour
     {
         if(currentHealth <= 0)
         {
-            
+            scoreValue++;
             rb.isKinematic = false;
         }
         
@@ -96,7 +99,7 @@ public class EnimyController : MonoBehaviour
 
     void Die()
     {
-        ChaseSpeed = 0f;
+        
         GameController.instance.AtualizaHud(scoreValue);
         Invoke("Destruir", tempomorte);
     }
@@ -111,7 +114,7 @@ public class EnimyController : MonoBehaviour
     {
         var diferencaPlayer = player.gameObject.transform.position.x - transform.position.x;
         var seguindoPlayer = Mathf.Abs(diferencaPlayer) < rangeDetect;
-        if (modoChase && seguindoPlayer)
+        if (modoChase && seguindoPlayer && dead == false)
         {
             anim.SetBool("Chasing", true);
             anim.SetBool("Patroling", false);
