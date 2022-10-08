@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private Transform GroundCheck;
     public Animator hudAnim;
+    public Animator painelanim;
 
     private bool noChao = false;
     private bool jump = false;
@@ -126,8 +127,15 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.tag == "Win")
         {
-            SceneManager.LoadScene("MENU");
+            painelanim.SetTrigger("FadeOut");
+            Invoke("Cena2", 1f);
+            
         }
+    }
+
+    void Cena2()
+    {
+        SceneManager.LoadScene("Final");
     }
     void Vida()
     {

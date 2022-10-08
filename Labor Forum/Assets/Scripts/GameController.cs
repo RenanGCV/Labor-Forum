@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
         coins += value;
         
 
+        coins++;
         TotalCoins++;
 
         PlayerPrefs.SetInt("coins", TotalCoins);

@@ -10,6 +10,7 @@ public class TotemScript : MonoBehaviour
     public string fraseToten;
     public EdgeCollider2D col;
     public Image caixa;
+    public AudioSource som;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class TotemScript : MonoBehaviour
         {
             caixa.gameObject.SetActive(true);
             anim.SetTrigger("Pego");
+            som.Play();
             GameController.instance.AtualizaHud(scoreValue);
             col.enabled = false;
             GameController.instance.AtualizaHud2(fraseToten);

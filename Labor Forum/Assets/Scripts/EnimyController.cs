@@ -36,6 +36,8 @@ public class EnimyController : MonoBehaviour
     int maxHealth = 100;
     [SerializeField]
     float tempomorte;
+    [SerializeField]
+    AudioSource Dano;
 
 
 
@@ -74,6 +76,7 @@ public class EnimyController : MonoBehaviour
     {
         currentHealth -= damage;
         anim.SetTrigger("Dano");
+        Dano.Play();
 
         //Animacao de dano
 
